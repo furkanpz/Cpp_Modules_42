@@ -39,11 +39,4 @@ void PhoneBook::Search()
         std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
                   << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << std::endl;
 
-        for (size_t i = 0; i < Contact.size(); ++i) {
-            std::cout << formatColumn(std::to_string(i)) << "|"
-                      << formatColumn(contacts[i].firstName) << "|"
-                      << formatColumn(contacts[i].lastName) << "|"
-                      << formatColumn(contacts[i].nickname) << std::endl;
-        }
-    }
 }
