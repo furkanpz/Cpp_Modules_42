@@ -20,8 +20,10 @@ class PhoneBook {
 		Contact Contact[8];
 		void Add();
 		void Search();
+		void Exit();
 		int size;
 		int dsize;
-		PhoneBook() : size(0), dsize(0) {}
-
+		PhoneBook();
+	private:
+		std::string SetColumn(std::string str);
 };

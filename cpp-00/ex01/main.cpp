@@ -3,6 +3,7 @@
 int main()
 {
 	PhoneBook a;
+
 	a.Add();
-	a.Search();
+	a.Search();	
 }
