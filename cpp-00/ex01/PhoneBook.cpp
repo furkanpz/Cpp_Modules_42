@@ -11,16 +11,16 @@ void PhoneBook::Add()
 	if (this->dsize != 8)
 		this->dsize++;
 	std::cout << "Name :";
-	std::cin >> this->Contact[this->size].name;
+	std::getline(std::cin, this->Contact[this->size].name);
 	std::cout << "Surname :";
-	std::cin >> this->Contact[this->size].surname;
+	std::getline(std::cin, this->Contact[this->size].surname);
 	std::cout << "Username :";
-	std::cin >> this->Contact[this->size].username;
+	std::getline(std::cin, this->Contact[this->size].username);
 	for (int a = 0; a != 1;)
 	{
 		err = 0;
 		std::cout << "Phone Number :";
-		std::cin >> this->Contact[this->size].number;
+		std::getline(std::cin, this->Contact[this->size].number);
 		for (int x = 0; this->Contact[this->size].number[x]; x++)
 		{
 			if (!isdigit(this->Contact[this->size].number[x]))
@@ -32,7 +32,7 @@ void PhoneBook::Add()
 			a = 1;
 	}
 	std::cout << "Darkest Secret :";
-	std::cin >> this->Contact[this->size].darkestsecret;
+	std::getline(std::cin, this->Contact[this->size].darkestsecret);
 	this->size++;
 }
 std::string PhoneBook::SetColumn(std::string str)
@@ -59,7 +59,7 @@ void PhoneBook::Search()
 	{
 		err = 0;
 		std::cout << "The index you want to view :";
-		std::cin >> index;
+		getline(std::cin, index);
 		for (int x = 0; index[x]; x++)
 		{
 			if (!isdigit(index[x]))
@@ -69,21 +69,20 @@ void PhoneBook::Search()
 			else if ((index[0] - '0') >= this->dsize)
 				err = 1;
 		}
-		if (err == 1)
+		if (std::cin.eof() == 1)
+			return ;
+		if (err == 1 || index.empty())
 			std::cout << "Incorrect index!" << std::endl;
 		else
 			break;
 	}
 	index2 = index[0] - '0';
-	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
-		<< std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << 
-		"|" << std::setw(10) << "Number" << "|" << std::setw(10) << "Secret" << std::endl;
-	std::cout << std::setw(10) << index2 << "|" << std::setw(10) << SetColumn(this->Contact[index2].name)
-	<< std::setw(10) << SetColumn(this->Contact[index2].name)
-		<< "|" << std::setw(10) << SetColumn(this->Contact[index2].surname) << "|"
-		<< std::setw(10) << SetColumn(this->Contact[index2].username) << "|"
-		<< std::setw(10) << SetColumn(this->Contact[index2].number) << "|"
-		<< std::setw(10) << SetColumn(this->Contact[index2].darkestsecret) << std::endl;
+	std::cout << std::endl << "İndex :" << index2 << std::endl << "Name :" << SetColumn(this->Contact[index2].name)
+		<< std::endl << "Surname :" << SetColumn(this->Contact[index2].surname) 
+		<< std::endl << "Username :" << SetColumn(this->Contact[index2].username)
+		<< std::endl << "Number :" << SetColumn(this->Contact[index2].number)
+		<< std::endl << "Secret :" << SetColumn(this->Contact[index2].darkestsecret) << std::endl;
+	std::cout << std::endl;
 
 }
 

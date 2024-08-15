@@ -7,7 +7,7 @@ int main()
 
 
 	p = Zombie::zombieHorde(5,"TEST");
-	for (int x = 0; x < 5; x++)
+	for (int x = 0; x < 7; x++)
 	{
 		p[x].announce();
 	}
