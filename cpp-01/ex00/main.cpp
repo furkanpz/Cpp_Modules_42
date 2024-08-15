@@ -3,10 +3,10 @@
 
 int main()
 {
-	Zombie a;
 	Zombie *p;
-	a.randomChump("TATA");
-	p = Zombie::newZombie("TUTU");
 
+	p->randomChump("Test");
+	p = Zombie::newZombie("TUTU");
 	p->announce();
+	delete p;
 }
