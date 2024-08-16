@@ -1,38 +1,59 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : size(0), dsize(0)  {}
+PhoneBook::PhoneBook() {
+	this->size = 0;
+	this->dsize = 0;
+}
 
 void PhoneBook::Add()
 {
-	int err;
-	
+	long long number0;
+	std::string name;
+	std::string surname;
+	std::string username;
+	std::string number;
+	std::string secret;
+
 	if (this->size == 8)
 		this->size = 0;
 	if (this->dsize != 8)
 		this->dsize++;
-	std::cout << "Name :";
-	std::getline(std::cin, this->Contact[this->size].name);
-	std::cout << "Surname :";
-	std::getline(std::cin, this->Contact[this->size].surname);
-	std::cout << "Username :";
-	std::getline(std::cin, this->Contact[this->size].username);
-	for (int a = 0; a != 1;)
+	while (1)
 	{
-		err = 0;
-		std::cout << "Phone Number :";
-		std::getline(std::cin, this->Contact[this->size].number);
-		for (int x = 0; this->Contact[this->size].number[x]; x++)
+		std::cout << "Name :";
+		std::getline(std::cin, name);
+		std::cout << "Surname :";
+		std::getline(std::cin, surname);
+		std::cout << "Username :";
+		std::getline(std::cin, username);
+		while (1)
 		{
-			if (!isdigit(this->Contact[this->size].number[x]))
-				err = 1;
+			std::cout << "Phone Number :";
+			std::getline(std::cin, number);
+			try {
+				number0 = std::stoll(number);
+			}
+			catch (std::invalid_argument)
+			{
+				std::cout << "Please number only!" << std::endl;
+				continue;
+			}
+			break;
 		}
-		if (err == 1)
-			std::cout << "Please Number Only!" << std::endl;
-		else
-			a = 1;
+		std::cout << "Darkest Secret :";
+		std::getline(std::cin, secret);
+		if (name.empty() || surname.empty() || username.empty() || secret.empty())
+		{
+			std::cout << "Error: Input cannot be empty. Please enter a valid value." << std::endl;
+			continue;
+		}
+		break;
 	}
-	std::cout << "Darkest Secret :";
-	std::getline(std::cin, this->Contact[this->size].darkestsecret);
+	PhoneBook::Contact[this->size].setName(name);
+	PhoneBook::Contact[this->size].setSurname(surname);
+	PhoneBook::Contact[this->size].setUsername(username);
+	PhoneBook::Contact[this->size].setNumber(number0);
+	PhoneBook::Contact[this->size].setSecret(secret);
 	this->size++;
 }
 std::string PhoneBook::SetColumn(std::string str)
@@ -45,43 +66,41 @@ void PhoneBook::Search()
 {
 	std::string index;
 	int index2;
-	int	err;
 
 	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
 		<< std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << std::endl;
 	for (int x = 0; x < this->dsize; x++)
 	{
-		std::cout << std::setw(10) << x << "|" << std::setw(10) << SetColumn(this->Contact[x].name)
-		<< "|" << std::setw(10) << SetColumn(this->Contact[x].surname) << "|"
-		<< std::setw(10) << SetColumn(this->Contact[x].username) << std::endl;
+		std::cout << std::setw(10) << x << "|" << std::setw(10) << SetColumn(this->Contact[x].getName())
+		<< "|" << std::setw(10) << SetColumn(this->Contact[x].getSurname()) << "|"
+		<< std::setw(10) << SetColumn(this->Contact[x].getUsername()) << std::endl;
 	}
 	while (1)
 	{
-		err = 0;
 		std::cout << "The index you want to view :";
-		getline(std::cin, index);
-		for (int x = 0; index[x]; x++)
-		{
-			if (!isdigit(index[x]))
-				err = 1;
-			else if (x > 1)
-				err = 1;
-			else if ((index[0] - '0') >= this->dsize)
-				err = 1;
+		std::getline(std::cin, index);
+		std::cout << std::endl;
+		try {
+			index2 = std::stoi(index);
 		}
-		if (std::cin.eof() == 1)
-			return ;
-		if (err == 1 || index.empty())
-			std::cout << "Incorrect index!" << std::endl;
-		else
-			break;
+		catch (std::invalid_argument)
+		{
+			std::cout << "Please number Only!" << std::endl;
+			continue;
+		}
+		if (index2 >= this->dsize)
+		{
+			std::cout << "Please number Only!" << std::endl;
+			continue;
+		}
+		break;
 	}
-	index2 = index[0] - '0';
-	std::cout << std::endl << "İndex :" << index2 << std::endl << "Name :" << SetColumn(this->Contact[index2].name)
-		<< std::endl << "Surname :" << SetColumn(this->Contact[index2].surname) 
-		<< std::endl << "Username :" << SetColumn(this->Contact[index2].username)
-		<< std::endl << "Number :" << SetColumn(this->Contact[index2].number)
-		<< std::endl << "Secret :" << SetColumn(this->Contact[index2].darkestsecret) << std::endl;
+
+	std::cout << std::endl<< "İndex :" << index2 << std::endl << "Name :" << this->Contact[index2].getName()
+		<< std::endl << "Surname :" << this->Contact[index2].getSurname()
+		<< std::endl << "Username :" << this->Contact[index2].getUsername()
+		<< std::endl << "Number :" << this->Contact[index2].getNumber()
+		<< std::endl << "Secret :" << this->Contact[index2].getSecret() << std::endl;
 	std::cout << std::endl;
 
 }

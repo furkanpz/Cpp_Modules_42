@@ -4,14 +4,14 @@
 
 class PhoneBook {
 	public:
-		Contact Contact[8];
 
 		void Add();
 		void Search();
 		void Exit();
-		int size;
-		int dsize;
 		PhoneBook();
 	private:
+		int dsize;
+		int size;
+		Contact Contact[8];
 		std::string SetColumn(std::string str);
 };

@@ -6,11 +6,22 @@
 
 
 class Contact {
-	public:
-		std::string name;
+    private:
+        std::string name;
 		std::string surname;
 		std::string username;
-		std::string number;
+	    long long number;
 		std::string darkestsecret;
-        Contact();
+	public:
+        void setName(std::string name);
+        void setSurname(std::string surname);
+        void setUsername(std::string username);
+        void setNumber(long long number);
+        void setSecret(std::string darkestsecret);
+        std::string getName();
+        std::string getSurname();
+        std::string getUsername();
+        long long getNumber();
+        std::string getSecret();
+        
 };
