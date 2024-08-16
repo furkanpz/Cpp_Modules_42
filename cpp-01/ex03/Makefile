@@ -1,4 +1,4 @@
-NAME = brain
+NAME = attack
 
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 
