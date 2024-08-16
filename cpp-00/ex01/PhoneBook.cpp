@@ -96,7 +96,7 @@ void PhoneBook::Search()
 		break;
 	}
 
-	std::cout << std::endl<< "İndex :" << index2 << std::endl << "Name :" << this->Contact[index2].getName()
+	std::cout << std::endl<< "Index :" << index2 << std::endl << "Name :" << this->Contact[index2].getName()
 		<< std::endl << "Surname :" << this->Contact[index2].getSurname()
 		<< std::endl << "Username :" << this->Contact[index2].getUsername()
 		<< std::endl << "Number :" << this->Contact[index2].getNumber()

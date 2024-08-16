@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
@@ -15,3 +16,5 @@ class PhoneBook {
 		Contact Contact[8];
 		std::string SetColumn(std::string str);
 };
+
+#endif

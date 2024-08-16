@@ -1,12 +1,12 @@
-NAME = megaphone
+NAME = brain
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 
 CPP = c++
 
 RM = rm -rf
 
-SRCS = megaphone.cpp 
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 all: $(NAME)
 
