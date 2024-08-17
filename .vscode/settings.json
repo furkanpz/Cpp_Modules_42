@@ -65,6 +65,7 @@
 		"clocale": "cpp",
 		"execution": "cpp",
 		"variant": "cpp",
-		"__functional_base_03": "cpp"
+		"__functional_base_03": "cpp",
+		"fstream": "cpp"
 	}
 }
