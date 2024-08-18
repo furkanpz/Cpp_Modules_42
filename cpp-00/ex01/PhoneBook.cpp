@@ -22,14 +22,22 @@ void PhoneBook::Add()
 	{
 		std::cout << "Name :";
 		std::getline(std::cin, name);
+		if (std::cin.eof())
+			std::exit(0);
 		std::cout << "Surname :";
 		std::getline(std::cin, surname);
+		if (std::cin.eof())
+			std::exit(0);
 		std::cout << "Username :";
 		std::getline(std::cin, username);
+		if (std::cin.eof())
+			std::exit(0);
 		while (1)
 		{
 			std::cout << "Phone Number :";
 			std::getline(std::cin, number);
+			if (std::cin.eof())
+				std::exit(0);
 			try {
 				number0 = std::stoll(number);
 			}
@@ -42,6 +50,8 @@ void PhoneBook::Add()
 		}
 		std::cout << "Darkest Secret :";
 		std::getline(std::cin, secret);
+		if (std::cin.eof())
+			std::exit(0);
 		if (name.empty() || surname.empty() || username.empty() || secret.empty())
 		{
 			std::cout << "Error: Input cannot be empty. Please enter a valid value." << std::endl;
@@ -49,12 +59,11 @@ void PhoneBook::Add()
 		}
 		break;
 	}
-	PhoneBook::Contact[this->size].setName(name);
-	PhoneBook::Contact[this->size].setSurname(surname);
-	PhoneBook::Contact[this->size].setUsername(username);
-	PhoneBook::Contact[this->size].setNumber(number0);
-	PhoneBook::Contact[this->size].setSecret(secret);
-	this->size++;
+		PhoneBook::Contact[this->size].setName(name);
+		PhoneBook::Contact[this->size].setSurname(surname);
+		PhoneBook::Contact[this->size].setUsername(username);
+		PhoneBook::Contact[this->size].setNumber(number0);
+		PhoneBook::Contact[this->size].setSecret(secret);
 }
 std::string PhoneBook::SetColumn(std::string str)
 {
@@ -67,6 +76,11 @@ void PhoneBook::Search()
 	std::string index;
 	int index2;
 
+	if (this->dsize == 0)	
+	{	
+		std::cout << "PhoneBook is empty" << std::endl;
+		return ;
+	}
 	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
 		<< std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << std::endl;
 	for (int x = 0; x < this->dsize; x++)
@@ -80,6 +94,8 @@ void PhoneBook::Search()
 		std::cout << "The index you want to view :";
 		std::getline(std::cin, index);
 		std::cout << std::endl;
+		if (std::cin.eof())
+			std::exit(0);
 		try {
 			index2 = std::stoi(index);
 		}
@@ -95,17 +111,15 @@ void PhoneBook::Search()
 		}
 		break;
 	}
-
-	std::cout << std::endl<< "Index :" << index2 << std::endl << "Name :" << this->Contact[index2].getName()
-		<< std::endl << "Surname :" << this->Contact[index2].getSurname()
-		<< std::endl << "Username :" << this->Contact[index2].getUsername()
-		<< std::endl << "Number :" << this->Contact[index2].getNumber()
-		<< std::endl << "Secret :" << this->Contact[index2].getSecret() << std::endl;
-	std::cout << std::endl;
-
+		std::cout << std::endl<< "Index :" << index2 << std::endl << "Name :" << this->Contact[index2].getName()
+			<< std::endl << "Surname :" << this->Contact[index2].getSurname()
+			<< std::endl << "Username :" << this->Contact[index2].getUsername()
+			<< std::endl << "Number :" << this->Contact[index2].getNumber()
+			<< std::endl << "Secret :" << this->Contact[index2].getSecret() << std::endl;
+		std::cout << std::endl;
 }
 
 void PhoneBook::Exit()
 {
-	exit(0);
+	std::exit(0);
 }

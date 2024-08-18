@@ -31,11 +31,11 @@ int main()
 			std::cout << "Choose between 1 - 3" << std::endl;
 			continue;
 		}
-		if (input[0] == '1')
+		if (option == 1)
 			a.Add();
-		else if (input[0] == '2')
+		else if (option == 2)
 			a.Search();
-		else if (input[0] == '3')
+		else if (option == 3)
 			a.Exit();
 	}
 }
