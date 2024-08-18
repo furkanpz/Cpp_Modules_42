@@ -59,12 +59,12 @@ void PhoneBook::Add()
 		}
 		break;
 	}
-		PhoneBook::Contact[this->size].setName(name);
-		PhoneBook::Contact[this->size].setSurname(surname);
-		PhoneBook::Contact[this->size].setUsername(username);
-		PhoneBook::Contact[this->size].setNumber(number0);
-		PhoneBook::Contact[this->size].setSecret(secret);
-		this->size++;
+	PhoneBook::Contact[this->size].setName(name);
+	PhoneBook::Contact[this->size].setSurname(surname);
+	PhoneBook::Contact[this->size].setUsername(username);
+	PhoneBook::Contact[this->size].setNumber(number0);
+	PhoneBook::Contact[this->size].setSecret(secret);
+	this->size++;
 }
 std::string PhoneBook::SetColumn(std::string str)
 {

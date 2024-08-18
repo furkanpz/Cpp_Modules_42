@@ -68,6 +68,7 @@
 		"__functional_base_03": "cpp",
 		"fstream": "cpp",
 		"deque": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__memory": "cpp"
 	}
 }

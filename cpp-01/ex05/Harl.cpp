@@ -2,7 +2,7 @@
 
 void Harl::debug( void )
 {
-	std::cout << " love having extra bacon for my 7XL-double-cheese-triple-pickle-special-"
+	std::cout << "love having extra bacon for my 7XL-double-cheese-triple-pickle-special-"
 << "ketchup burger. I really do!" << std::endl;
 }
 
@@ -14,7 +14,7 @@ void Harl::info( void )
 
 void Harl::warning( void )
 {
-	std::cout << " think I deserve to have some extra bacon for free. I’ve been coming for"
+	std::cout << "think I deserve to have some extra bacon for free. I’ve been coming for"
 << "years whereas you started working here since last month." << std::endl;
 }
 
@@ -27,6 +27,16 @@ void Harl::complain(std::string level)
 {
 	int i;
 	std::string levels[4] = {"DEBUG","INFO","WARNING","ERROR"};
-	void (*Harl::func[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &error};
+	void (Harl::*func [4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
 	i = 0;
+	while (i < 4)
+	{
+		if (levels[i] == level)
+		{
+			(this->*func[i])();
+			break;
+		}
+		i++;
+	}
 }
