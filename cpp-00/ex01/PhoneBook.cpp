@@ -64,6 +64,7 @@ void PhoneBook::Add()
 		PhoneBook::Contact[this->size].setUsername(username);
 		PhoneBook::Contact[this->size].setNumber(number0);
 		PhoneBook::Contact[this->size].setSecret(secret);
+		this->size++;
 }
 std::string PhoneBook::SetColumn(std::string str)
 {
@@ -96,6 +97,11 @@ void PhoneBook::Search()
 		std::cout << std::endl;
 		if (std::cin.eof())
 			std::exit(0);
+		if (index.length() > 1)
+		{
+			std::cout << "Please number Only!" << std::endl;
+			continue;
+		}
 		try {
 			index2 = std::stoi(index);
 		}

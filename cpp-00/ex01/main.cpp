@@ -4,38 +4,26 @@ int main()
 {
 	PhoneBook a;
 	std::string input;
-	int option;
 
 	while (1)
 	{
-		std::cout << "1 - Add" << std::endl << "2 - Search" << std::endl << "3 - Exit" << std::endl;
+		std::cout << "1 - ADD" << std::endl << "2 - SEARCH" << std::endl << "3 - EXIT" << std::endl;
 		std::cout << "> ";
 		std::getline(std::cin, input);
 		if (std::cin.eof() == 1)
 			break;
 		if (input.empty())
 			continue;
-		try {
-			option = std::stoi(input);
-		}
-		catch (std::invalid_argument) {
-			std::cout << "Choose between 1 - 3" << std::endl;
-			continue;
-		}
-		catch (std::out_of_range) {
-			std::cout << "Choose between 1 - 3" << std::endl;
-			continue;
-		}
-		if (option > 3 || option <= 0)
+		if (input != "ADD" && input != "SEARCH" && input != "EXIT")
 		{
-			std::cout << "Choose between 1 - 3" << std::endl;
+			std::cout << "Please do not enter non-command input" << std::endl;
 			continue;
 		}
-		if (option == 1)
+		if (input == "ADD")
 			a.Add();
-		else if (option == 2)
+		else if (input == "SEARCH")
 			a.Search();
-		else if (option == 3)
+		else if (input == "EXIT")
 			a.Exit();
 	}
 }
