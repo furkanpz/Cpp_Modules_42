@@ -112,7 +112,7 @@ void PhoneBook::Search()
 			std::exit(0);
 		if (index.length() > 1)
 		{
-			std::cout << "Please number Only!" << std::endl;
+			std::cout << "Incorrect index!" << std::endl;
 			continue;
 		}
 		try {
@@ -120,12 +120,12 @@ void PhoneBook::Search()
 		}
 		catch (std::invalid_argument)
 		{
-			std::cout << "Please number Only!" << std::endl;
+			std::cout << "Incorrect index!" << std::endl;
 			continue;
 		}
 		if (index2 >= this->dsize)
 		{
-			std::cout << "Please number Only!" << std::endl;
+			std::cout << "Incorrect index!" << std::endl;
 			continue;
 		}
 		break;

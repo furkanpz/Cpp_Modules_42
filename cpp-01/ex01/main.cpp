@@ -7,6 +7,6 @@ int main()
 
 
 	p = Zombie::zombieHorde(5,"TEST"); 
-		
+	
 	delete[] p;
 }
