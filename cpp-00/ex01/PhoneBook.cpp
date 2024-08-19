@@ -13,6 +13,7 @@ void PhoneBook::Add()
 	std::string username;
 	std::string number;
 	std::string secret;
+	int err;
 
 	if (this->size == 8)
 		this->size = 0;
@@ -34,10 +35,22 @@ void PhoneBook::Add()
 			std::exit(0);
 		while (1)
 		{
+			err = 0;
 			std::cout << "Phone Number :";
 			std::getline(std::cin, number);
 			if (std::cin.eof())
 				std::exit(0);
+			for (int x = 0; number[x]; x++)
+			{
+				if (!std::isdigit(number[x]))
+				{
+					std::cout << "Please number only!" << std::endl;
+					err = 1;
+					break;
+				}
+			}
+			if (err == 1)
+				continue;
 			try {
 				number0 = std::stoll(number);
 			}
