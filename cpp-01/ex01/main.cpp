@@ -5,8 +5,9 @@ int main()
 {
 	Zombie *p;
 
-
 	p = Zombie::zombieHorde(5,"TEST"); 
-	
-	delete[] p;
+	for (int x = 0; x < 5; x++)
+	{
+		p->announce();
+	}
 }

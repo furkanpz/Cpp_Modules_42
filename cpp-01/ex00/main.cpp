@@ -4,10 +4,11 @@
 int main()
 {
 	Zombie *p = NULL;
-	Zombie a("testo");
-	p = a.newZombie("p");
+	Zombie a("nonptr");
+	p = a.newZombie("ptr");
 	p->announce();
-	p->randomChump("test");
-	a.randomChump("yeey");
+	a.announce();
+	p->randomChump("ptrrandom");
+	a.randomChump("nonptr random");
 	delete p;
 }
