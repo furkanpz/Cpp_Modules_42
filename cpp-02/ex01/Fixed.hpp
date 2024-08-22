@@ -16,12 +16,12 @@ class Fixed {
         Fixed(int value);
         Fixed(float value);
         Fixed();
-        Fixed(Fixed &other);
-        Fixed& operator =(const Fixed &fix);
+        Fixed(Fixed const &other);
+        Fixed& operator =( Fixed const &fix);
         ~Fixed();
         float toFloat(void) const;
         int toInt(void) const;
 };
 
-
+std::ostream& operator << (std::ostream &out, const Fixed &fix);
 #endif
