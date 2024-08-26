@@ -72,3 +72,45 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << this->name << " " <<
 	amount << " Repaired Total Hit " << this->hit << std::endl;
 }
+
+std::string ClapTrap::getName()
+{
+	return (this->name);
+}
+
+unsigned int ClapTrap::getHit()
+{
+	return (this->hit);
+}
+
+
+unsigned int ClapTrap::getEnergy()
+{
+	return (this->energy);
+}
+
+unsigned int ClapTrap::getAttackp()
+{
+	return (this->attackp);
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->name = name;
+}
+
+void ClapTrap::setHit(unsigned int hit)
+{
+	this->hit = hit;
+}
+
+void ClapTrap::setEnergy(unsigned int energy)
+{
+	this->energy = energy;
+}
+
+void ClapTrap::setAttackp(unsigned int attackp)
+{
+	this->attackp = attackp;
+}
+
