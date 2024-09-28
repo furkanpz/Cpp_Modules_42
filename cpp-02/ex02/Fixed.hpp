@@ -1,9 +1,7 @@
-#include <cmath>
-#include <iostream>
-
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <cmath>
 #include <iostream>
 
 class Fixed {
@@ -20,6 +18,8 @@ class Fixed {
         Fixed& operator =( Fixed const &fix);
 		Fixed& operator++();
 		Fixed operator++(int);
+		Fixed& operator--();
+		Fixed operator--(int);
         ~Fixed();
         float toFloat(void) const;
 		Fixed operator + (const Fixed &_2);
