@@ -26,6 +26,13 @@ class Fixed {
 		Fixed operator - (const Fixed &_2);
 		Fixed operator * (const Fixed &_2);
 		Fixed operator / (const Fixed &_2);
+        bool operator == (const Fixed &_1) const;
+        bool operator >= (const Fixed &_1) const;
+        bool operator <= (const Fixed &_1) const;
+        bool operator != (const Fixed &_1) const;
+        bool operator > (const Fixed &_1) const;
+        bool operator < (const Fixed &_1) const;
+
         int toInt(void) const;
 		static Fixed& min(Fixed &_1, Fixed &_2);
 		static Fixed min(const Fixed &_1,const Fixed &_2);
@@ -34,12 +41,6 @@ class Fixed {
 };
 
 std::ostream& operator << (std::ostream &out, const Fixed &fix);
-bool operator == (const Fixed &_1, const Fixed &_2);
-bool operator >= (const Fixed &_1, const Fixed &_2);
-bool operator <= (const Fixed &_1, const Fixed &_2);
-bool operator != (const Fixed &_1, const Fixed &_2);
-bool operator > (const Fixed &_1, const Fixed &_2);
-bool operator < (const Fixed &_1, const Fixed &_2);
 
 
 #endif

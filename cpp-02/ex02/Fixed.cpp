@@ -75,45 +75,33 @@ std::ostream& operator << (std::ostream &out, const Fixed &fix)
     return (out);
 }
 
-bool operator == (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator == (const Fixed &_1) const
 {
-	if (_1.toFloat() == _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() == _1.toFloat());
 }
 
-bool operator >= (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator >= (const Fixed &_1) const
 {
-	if (_1.toFloat() >= _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() >= _1.toFloat());
 }
 
-bool operator <= (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator <= (const Fixed &_1) const
 {
-	if (_1.toFloat() <= _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() <= _1.toFloat());
 }
 
-bool operator != (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator != (const Fixed &_1) const
 {
-	if (_1.toFloat() != _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() != _1.toFloat());
 }
 
-bool operator > (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator > (const Fixed &_1) const
 {
-	if (_1.toFloat() > _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() > _1.toFloat());
 }
-bool operator < (const Fixed &_1, const Fixed &_2)
+bool Fixed::operator < (const Fixed &_1) const
 {
-	if (_1.toFloat() < _2.toFloat())
-		return (true);
-	return (false);
+	return (this->toFloat() < _1.toFloat());
 }
 
 Fixed Fixed:: operator + (const Fixed &_2)
@@ -136,14 +124,15 @@ Fixed Fixed:: operator / (const Fixed &_2)
 	return (Fixed(this->toFloat() / _2.toFloat()));
 }
 
-Fixed& Fixed::min( Fixed &_1, Fixed &_2){
+Fixed& Fixed::min( Fixed &_1, Fixed &_2)
+{
 	if (_1 > _2)
 		return (_2);
 	else if (_2 > _1)
 		return (_1);
 	return (_1);
 }
-Fixed Fixed::min(const Fixed &_1,const Fixed &_2){
+Fixed Fixed::min(const Fixed &_1 ,const Fixed &_2){
 	if (_1 > _2)
 		return (_2);
 	else if (_2 > _1)
