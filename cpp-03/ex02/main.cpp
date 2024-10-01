@@ -1,3 +1,4 @@
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
 
@@ -7,7 +8,10 @@ int main()
 
     Clap.beRepaired(100);
     ClapTrap a = Clap;
-    a.beRepaired(5);
-    a.takeDamage(5);
+
+    FragTrap b("FragTrap");
+    b.highFivesGuys();
+    b.attack("Enemy");
+    b.beRepaired(123);
     a.attack("Enemy");
 }

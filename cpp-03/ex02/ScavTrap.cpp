@@ -12,7 +12,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Default Destructor Called" << std::endl;
+    std::cout << "ScavTrap Destructor Called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name)

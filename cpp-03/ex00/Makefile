@@ -1,4 +1,4 @@
-NAME = claptrap
+NAME = ClapTrap
 
 FLAGS = -Wall -Wextra -Werror
 

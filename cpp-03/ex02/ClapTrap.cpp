@@ -23,7 +23,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 ClapTrap::ClapTrap(const std::string &name) : Name(name), Hit(10), Energy(10), Attackp(0)
 {
     // BURADAKİ OUT DÜZELTİLİCEK
-    std::cout << "ClapTrap Default Constructor Called" << std::endl;
+    std::cout << "ClapTrap Constructor Called" << std::endl;
 
 }
 

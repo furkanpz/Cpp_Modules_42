@@ -69,6 +69,8 @@
 		"fstream": "cpp",
 		"deque": "cpp",
 		"stack": "cpp",
-		"__memory": "cpp"
+		"__memory": "cpp",
+		"print": "cpp",
+		"queue": "cpp"
 	}
 }

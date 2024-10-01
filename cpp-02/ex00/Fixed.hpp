@@ -10,7 +10,7 @@ class Fixed {
         static const int bit = 8;
     public:
         Fixed();
-        Fixed(Fixed &other);
+        Fixed(Fixed const &other);
         Fixed& operator =(const Fixed &fix);
         ~Fixed();
         int getRawBits (void) const;

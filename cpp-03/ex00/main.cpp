@@ -1,9 +1,13 @@
 #include "ClapTrap.hpp"
 
+
 int main()
 {
-	ClapTrap a("A");
-	ClapTrap b("B");
+    ClapTrap Clap("Test");
 
-	a.attack("123");
+    Clap.beRepaired(100);
+    ClapTrap a = Clap;
+    a.beRepaired(5);
+    a.takeDamage(5);
+    a.attack("Enemy");
 }
