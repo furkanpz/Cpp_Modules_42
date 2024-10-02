@@ -37,9 +37,9 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (this->Hit == 0 || this->Energy == 0)
 	{
 		if (this->Hit == 0)
-			std::cout << "ClapTrap "<< this->Name << " is Dead!";
+			std::cout << "ClapTrap "<< this->Name << " is Dead!" << std::endl;
 		else if (this->Energy == 0)
-			std::cout << "ClapTrap "<< this->Name << " Not Enough Energy to Repaired!";
+			std::cout << "ClapTrap "<< this->Name << " Not Enough Energy to Repaired!" << std::endl;
 		return ;
 	}
     std::cout << "ClapTrap " << this->Name << " Repaired " <<
@@ -53,9 +53,9 @@ void ClapTrap::attack(const std::string &target)
     if (this->Hit == 0 || this->Energy == 0)
 	{
 		if (this->Energy == 0)
-			std::cout << "ClapTrap "<< this->Name << " Not Enough Energy to Attack!";
+			std::cout << "ClapTrap "<< this->Name << " Not Enough Energy to Attack!" << std::endl;
 		else if (this->Hit == 0)
-			std::cout << "ClapTrap "<< this->Name << " is Dead!";
+			std::cout << "ClapTrap "<< this->Name << " is Dead!" << std::endl;
 		return ;
 	}
     std::cout << "ClapTrap " << this->Name << " attacks " << target

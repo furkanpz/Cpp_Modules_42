@@ -45,9 +45,9 @@ void ScavTrap::attack(const std::string& target)
 	if (this->Hit == 0 || this->Energy == 0)
 	{
 		if (this->Energy == 0)
-			std::cout << "ScavTrap "<< this->Name << " Not Enough Energy to Attack!";
+			std::cout << "ScavTrap "<< this->Name << " Not Enough Energy to Attack!" << std::endl;
 		else if (this->Hit == 0)
-			std::cout << "ScavTrap "<< this->Name << " is Dead!";
+			std::cout << "ScavTrap "<< this->Name << " is Dead!" << std::endl;
 		return ;
 	}
 
@@ -58,5 +58,13 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
+	if (this->Hit == 0 || this->Energy == 0)
+	{
+		if (this->Energy == 0)
+			std::cout << "ScavTrap "<< this->Name << " Not Enough Energy" << std::endl;
+		else if (this->Hit == 0)
+			std::cout << "ScavTrap "<< this->Name << " is Dead!" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->Name << " have enterred in Gate keeper mode" << std::endl;
 }

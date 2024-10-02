@@ -43,7 +43,13 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 void FragTrap::highFivesGuys(void)
 {
 	if (this->Hit == 0 || this->Energy == 0)
+	{
+		if (this->Energy == 0)
+			std::cout << "FragTrap "<< this->Name << " Not Enough Energy" << std::endl;
+		else if (this->Hit == 0)
+			std::cout << "FragTrap "<< this->Name << " is Dead!" << std::endl;
 		return ;
+	}
 	std::cout << "FragTrap " << this->Name << " High Fives Guys!" << std::endl;
 	this->Energy -= 1;
 }
