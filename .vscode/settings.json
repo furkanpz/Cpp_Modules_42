@@ -71,6 +71,9 @@
 		"stack": "cpp",
 		"__memory": "cpp",
 		"print": "cpp",
-		"queue": "cpp"
+		"queue": "cpp",
+		"__functional_03": "cpp",
+		"memory_resource": "cpp",
+		"filesystem": "cpp"
 	}
 }

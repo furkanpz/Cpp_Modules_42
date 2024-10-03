@@ -1,4 +1,4 @@
-NAME = FragTrap
+NAME = Brain
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -6,8 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 all: $(NAME)
 
 $(NAME): $(SRCS)
