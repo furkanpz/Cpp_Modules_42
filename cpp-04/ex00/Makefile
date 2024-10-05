@@ -6,11 +6,18 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCPATH = ./src
+
+INC = ./inc
+
+SRCS = $(SRCPATH)/main.cpp $(SRCPATH)/Animal.cpp \
+ $(SRCPATH)/Dog.cpp $(SRCPATH)/Cat.cpp \
+ $(SRCPATH)/WrongAnimal.cpp $(SRCPATH)/WrongCat.cpp
+
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	$(CPP) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CPP) $(FLAGS) $(SRCS) -I$(INC) -o $(NAME)
 
 clean:
 	$(RM) $(NAME)

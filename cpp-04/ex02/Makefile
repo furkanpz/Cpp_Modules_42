@@ -1,4 +1,4 @@
-NAME = Brain
+NAME = AAnimal
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -6,12 +6,19 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCPATH = ./src
+
+INC = ./inc
+
+SRCS = $(SRCPATH)/main.cpp $(SRCPATH)/AAnimal.cpp \
+ $(SRCPATH)/Dog.cpp $(SRCPATH)/Cat.cpp \
+ $(SRCPATH)/WrongAnimal.cpp $(SRCPATH)/WrongCat.cpp \
+ $(SRCPATH)/Brain.cpp
+
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	$(CPP) $(FLAGS) $(SRCS) -o $(NAME)
-
+	$(CPP) $(FLAGS) $(SRCS) -I$(INC) -o $(NAME)
 clean:
 	$(RM) $(NAME)
 

@@ -1,0 +1,13 @@
+       Sanal yıkıcı:
+        Sanal bir yıkıcı, sanal yıkıcı tarafından tahsis edilen bellek alanını boşaltmak için kullanılır. 
+        türetilmiş sınıf nesnesini veya örneğini silerken türetilmiş
+        sınıfını bir temel sınıf işaretçisi nesnesi kullanarak yok eder. Bir temel veya üst sınıf yıkıcısı
+        virtual anahtar sözcüğünü kullanarak hem temel sınıfın hem de türetilmiş sınıfın 
+        yıkıcı çalışma zamanında çağrılır, ancak önce türetilmiş sınıf çağrılır
+        ve ardından her iki yıkıcı tarafından işgal edilen alanı serbest bırakmak için temel sınıf.
+
+        Her yıkıcı ne olursa olsun çağrılır. virtual, her yıkıcının
+        orta yerine üstten başlar.
+
+        Sanal yıkıcılar, bir örneği silme olasılığınız olduğunda kullanışlıdır 
+        temel sınıfa bir işaretçi aracılığıyla türetilmiş bir sınıfın
