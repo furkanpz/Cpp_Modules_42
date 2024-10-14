@@ -1,4 +1,6 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
 
 Form::Form(): name("Unnamed"), exGrade(150), signGrade(150), sign(false)
 {
@@ -9,8 +11,6 @@ Form::~Form()
 {
 	std::cout << "Form Destructor Called!" << std::endl;
 }
-
-
 
 Form::Form(const Form &other) : name(other.GetName()),
 exGrade(other.GetExGrade()), signGrade(other.GetSignGrade()), sign(other.GetSign())
@@ -27,6 +27,7 @@ Form &Form::operator=(const Form &other)
 	std::cout << "Form Copy Assigment Constructor Called!" << std::endl;
 	if (this != &other)
 		*this = other;
+	return (*this);
 }
 
 Form::Form(const std::string &name, const bool &sign, const int &signGrade, const int &exGrade): name(name),

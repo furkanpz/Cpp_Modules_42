@@ -10,7 +10,7 @@ int main()
 			a.incrementGrade();
 			std::cout << a << std::endl;
 		}
-		catch (std::exception &e)
+		catch (std::exception & e)
 		{
 			std::cout << e.what() << std::endl;
 		}

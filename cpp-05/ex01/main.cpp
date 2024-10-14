@@ -1,19 +1,11 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 	Bureaucrat a("Test", 5);
+	Form b("Form", false, 151,3);
 	
-	for (int x = 0; x < 7; x++)
-	{
-		try{
-			a.incrementGrade();
-			std::cout << a << std::endl;
-		}
-		catch (std::exception & e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-	}
-	
+	b.beSigned(a);
+	a.signForm(b);
 }

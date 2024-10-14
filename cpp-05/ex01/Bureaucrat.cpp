@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(): name("Unnamed"), grade(150)
 {
@@ -7,6 +8,7 @@ Bureaucrat::Bureaucrat(): name("Unnamed"), grade(150)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
+	std::cout << "Bureaucrat Constructor Called!" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
