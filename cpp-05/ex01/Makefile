@@ -1,5 +1,5 @@
 
-NAME = Bureaucrat
+NAME = Form
 
 FLAGS = -Wall -Wextra -Werror
 

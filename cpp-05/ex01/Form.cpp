@@ -78,3 +78,10 @@ const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade Too Low!");
 }
+
+std::ostream & operator<<(std::ostream & out, const Form & br)
+{
+	out << "Name: " << br.GetName() << ", Signed: " << br.GetSign()
+	<< ", SignGrade: " << br.GetSignGrade() << ", ExecuteGrade: " << br.GetExGrade();
+	return (out);
+}
