@@ -9,15 +9,21 @@ CPP = c++
 
 SRCS = main.cpp Bureaucrat.cpp
 
+OBJ = $(SRCS:.cpp=.o)
+
+%.o: %.cpp
+	$(CC) -c $< -o $@
+
 all: $(NAME)
 
-$(NAME): $(SRCS)
-	$(CPP) $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJ)
 
 fclean:clean
+	$(RM) $(NAME)
 
 re: clean all
 
