@@ -30,8 +30,8 @@ Form &Form::operator=(const Form &other)
 	return (*this);
 }
 
-Form::Form(const std::string &name, const bool &sign, const int &signGrade, const int &exGrade): name(name),
-sign(sign), signGrade(signGrade), exGrade(exGrade)
+Form::Form(const std::string &name, const int &signGrade, const int &exGrade): name(name),
+sign(false), signGrade(signGrade), exGrade(exGrade)
 {
 	if (signGrade > 150 || exGrade > 150)
 		throw Form::GradeTooLowException();
