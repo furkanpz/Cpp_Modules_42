@@ -1,5 +1,5 @@
-#ifndef PDF_HPP
-# define PDF_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 

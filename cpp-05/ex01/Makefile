@@ -12,7 +12,7 @@ SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CC) -c $< -o $@
+	$(CPP) -c $< -o $@
 
 all: $(NAME)
 

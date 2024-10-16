@@ -1,10 +1,11 @@
-#ifndef RRF_HPP
-# define RRF_HPP
+#ifndef ROBOTMYREQUESTFORM_HPP
+# define ROBOTMYREQUESTFORM_HPP
 
 #include  "AForm.hpp"
 
 
-class RobotomyRequestForm: public AForm{
+class RobotomyRequestForm: public AForm
+{
 
 public:
 	RobotomyRequestForm();

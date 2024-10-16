@@ -1,11 +1,15 @@
-#ifndef SCF_HPP
-# define SCF_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 
 #include "AForm.hpp"
 
 
+class AForm;
+
+
 class Intern {
+
 public:
 	Intern();
 	Intern(Intern const & src);

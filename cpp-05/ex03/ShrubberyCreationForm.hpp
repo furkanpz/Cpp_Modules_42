@@ -1,5 +1,5 @@
-#ifndef SCF_HPP
-# define SCF_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
 

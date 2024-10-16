@@ -1,5 +1,5 @@
 
-NAME = AForm
+NAME = Intern
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -7,12 +7,14 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp \
+PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
+ShrubberyCreationForm.cpp Intern.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CC) -c $< -o $@
+	$(CPP) -c $< -o $@
 
 all: $(NAME)
 
