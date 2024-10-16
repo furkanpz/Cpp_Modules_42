@@ -22,9 +22,9 @@ std::string RobotomyRequestForm::getTarget() const{
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 
-	if (executor.getGrade() > GetExGrade())
+	if (executor.getGrade() > getExGrade())
 		throw AForm::GradeTooLowException();
-	if (!GetSign())
+	if (!getSign())
 		throw AForm::FormNotSignedException();
 	std::cout << "Drilling noises" << std::endl;
 	if (std::rand() % 2)

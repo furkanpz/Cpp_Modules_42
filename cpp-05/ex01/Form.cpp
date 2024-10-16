@@ -12,8 +12,8 @@ Form::~Form()
 	std::cout << "Form Destructor Called!" << std::endl;
 }
 
-Form::Form(const Form &other) : name(other.GetName()),
-exGrade(other.GetExGrade()), signGrade(other.GetSignGrade()), sign(other.GetSign())
+Form::Form(const Form &other) : name(other.getName()),
+exGrade(other.getExGrade()), signGrade(other.getSignGrade()), sign(other.getSign())
 {
 	if (signGrade > 150 || exGrade > 150)
 		throw Form::GradeTooLowException();
@@ -40,22 +40,22 @@ sign(false), signGrade(signGrade), exGrade(exGrade)
 	std::cout << "Form Constructor called!" << std::endl;
 }
 
-int Form::GetExGrade() const
+int Form::getExGrade() const
 {
 	return (this->exGrade);
 }
 
-int Form::GetSignGrade() const
+int Form::getSignGrade() const
 {
 	return (this->signGrade);
 }
 
-std::string Form::GetName() const
+std::string Form::getName() const
 {
 	return (this->name);
 }
 
-bool Form::GetSign() const
+bool Form::getSign() const
 {
 	return (this->sign);
 }
@@ -81,7 +81,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream & out, const Form & br)
 {
-	out << "Name: " << br.GetName() << ", Signed: " << br.GetSign()
-	<< ", SignGrade: " << br.GetSignGrade() << ", ExecuteGrade: " << br.GetExGrade();
+	out << "Name: " << br.getName() << ", Signed: " << br.getSign()
+	<< ", SignGrade: " << br.getSignGrade() << ", ExecuteGrade: " << br.getExGrade();
 	return (out);
 }

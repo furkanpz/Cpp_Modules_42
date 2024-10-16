@@ -30,17 +30,17 @@ Intern & Intern::operator=(Intern const & src)
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	if (name == "ShrubberyCreationForm")
+	if (name == "shrubbery creation")
 	{
 		std::cout << "Intern creates " << name << std::endl;
 		return new ShrubberyCreationForm(target);
 	}
-	else if (name == "RobotomyRequestForm")
+	else if (name == "robotomy request")
 	{
 		std::cout << "Intern creates " << name << std::endl;
 		return new RobotomyRequestForm(target);
 	}
-	else if (name == "PresidentialPardonForm")
+	else if (name == "presidential pardon")
 	{
 		std::cout << "Intern creates " << name << std::endl;
 		return new PresidentialPardonForm(target);

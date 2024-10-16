@@ -5,11 +5,33 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
 
-int main()
+static void	test_intern(const std::string &type, const std::string &target)
 {
-	Bureaucrat b("Bureaucrat", 1);
-	Intern caktirma = Intern();
+	Intern		bob;
+	AForm		*form;
+	Bureaucrat	jim("Jim", 1);
 
-	AForm *f4 = caktirma.makeForm("ShrubberyCreationForm", "test");
+	form = bob.makeForm(type, target);
+	if (form)
+	{
+		std::cout << *form << std::endl;
+		jim.signForm(*form);
+		form->execute(jim);
+	}
+	delete (form);
+}
 
+int	main()
+{
+	srand(time(NULL));
+	test_intern("shrubbery creation", "garden");
+	std::cout << "----------------------------------" << std::endl;
+	test_intern("robotomy request", "Bender");
+	std::cout << "----------------------------------" << std::endl;
+	test_intern("presidential pardon", "Tom");
+	std::cout << "----------------------------------" << std::endl;
+	test_intern("unknown form", "target");
+	std::cout << "----------------------------------" << std::endl;
+	test_intern("test", "lol");
+	return (0);
 }

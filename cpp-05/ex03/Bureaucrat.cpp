@@ -63,21 +63,21 @@ void Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(AForm &f)
 {
-	if (this->grade > f.GetSignGrade())
+	if (this->grade > f.getSignGrade())
 	{	
-		std::cout << this->getName() << " couldn’t sign " << f.GetName() 
+		std::cout << this->getName() << " couldn’t sign " << f.getName() 
 		<< " because " << "Bureaucrat grade too low to sign!" << std::endl;
 		return ;
 	}
-	else if (f.GetSign() == true)
+	else if (f.getSign() == true)
 	{
-		std::cout << this->getName() << " couldn’t sign " << f.GetName() 
+		std::cout << this->getName() << " couldn’t sign " << f.getName() 
 		<< " because " << "Already signed!" << std::endl;
 		return ;
 	}
 	else
 	{
-		std::cout << this->getName() << " signed " << f.GetName() << std::endl;
+		std::cout << this->getName() << " signed " << f.getName() << std::endl;
 		f.setSign();
 	}
 }
@@ -103,10 +103,10 @@ void Bureaucrat::executeForm(AForm const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->getName() << " executes " << form.GetName() << std::endl;
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->getName() << " couldn’t execute " << form.GetName() << " because " << e.what() << std::endl;
+		std::cerr << this->getName() << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }

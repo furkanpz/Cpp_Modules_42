@@ -21,10 +21,10 @@ class AForm {
 		AForm(const std::string &name, \
 			const int &signGrade, const int &exGrade);
 	public:
-		int			GetExGrade() const;
-		int			GetSignGrade() const;
-		std::string	GetName() const;
-		bool		GetSign() const;
+		int			getExGrade() const;
+		int			getSignGrade() const;
+		std::string	getName() const;
+		bool		getSign() const;
 		void		beSigned(Bureaucrat &br);
 		void		setSign();
 		virtual void execute(Bureaucrat const & executor) const = 0;

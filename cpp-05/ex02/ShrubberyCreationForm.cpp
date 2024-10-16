@@ -22,9 +22,9 @@ std::string ShrubberyCreationForm::getTarget() const{
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 
-	if (executor.getGrade() > GetExGrade())
+	if (executor.getGrade() > getExGrade())
 		throw AForm::GradeTooLowException();
-	if (!GetSign())
+	if (!getSign())
 		throw AForm::FormNotSignedException();
 	std::ofstream file;
 	file.open(_target + "_shrubbery");
