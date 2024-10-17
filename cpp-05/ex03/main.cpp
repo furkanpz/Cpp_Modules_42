@@ -23,7 +23,6 @@ static void	test_intern(const std::string &type, const std::string &target)
 
 int	main()
 {
-	srand(time(NULL));
 	test_intern("shrubbery creation", "garden");
 	std::cout << "----------------------------------" << std::endl;
 	test_intern("robotomy request", "Bender");
@@ -33,5 +32,6 @@ int	main()
 	test_intern("unknown form", "target");
 	std::cout << "----------------------------------" << std::endl;
 	test_intern("test", "lol");
+	std::system("leaks Intern");
 	return (0);
 }

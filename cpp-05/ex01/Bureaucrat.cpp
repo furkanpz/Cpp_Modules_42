@@ -6,15 +6,27 @@ Bureaucrat::Bureaucrat(): name("Unnamed"), grade(150)
 	std::cout << "Bureaucrat Default Constructor Called!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade)
 {
-	std::cout << "Bureaucrat Constructor Called!" << std::endl;
-	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
-	else
-		this->grade = grade;
+	try
+	{
+		if (getGrade() < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (getGrade() > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		e.what();
+		this->grade = 150;
+		std::cout << "Bureaucrat " << getName() << " is now set to default grade : 150" << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		e.what();
+		this->grade = 150;
+		std::cout << "Bureaucrat " << getName() << " is now set to default grade : 150" << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()

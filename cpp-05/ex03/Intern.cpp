@@ -30,24 +30,42 @@ Intern & Intern::operator=(Intern const & src)
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	if (name == "shrubbery creation")
+	if (target.empty())
+		throw Intern::EmptyTargetException();
+	if (name.empty())
+		throw Intern::NoFormException();
+	std::string quest[] = {
+		"robotomy request",
+		"presidential pardon",
+		"shrubbery creation"
+	};
+ 	AForm*    forms[] = {
+        new RobotomyRequestForm( target ),
+        new PresidentialPardonForm( target ),
+        new ShrubberyCreationForm( target )
+    };
+	AForm *ret;
+	ret = NULL;
+	for (int x = 0; x < 3; x++)
 	{
-		std::cout << "Intern creates " << name << std::endl;
-		return new ShrubberyCreationForm(target);
+		if (quest[x] == name)
+			ret = forms[x];
+		else
+			delete forms[x];
 	}
-	else if (name == "robotomy request")
-	{
+	if (ret != NULL)
 		std::cout << "Intern creates " << name << std::endl;
-		return new RobotomyRequestForm(target);
-	}
-	else if (name == "presidential pardon")
-	{
-		std::cout << "Intern creates " << name << std::endl;
-		return new PresidentialPardonForm(target);
-	}
 	else
-	{
-		std::cout << "Intern cannot create " << name << std::endl;
-		return NULL;
-	}
+		std::cout << "Intern was not able to find the form " << name << std::endl;
+	return (NULL);
+}
+
+const char *Intern::EmptyTargetException::what() const throw()
+{
+    return ("Target is empty!");
+}
+
+const char *Intern::NoFormException::what() const throw()
+{
+    return ("No form named that !");
 }
