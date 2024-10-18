@@ -16,13 +16,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(gr
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		e.what();
 		this->grade = 150;
 		std::cout << "Bureaucrat " << getName() << " is now set to default grade : 150" << std::endl;
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		e.what();
 		this->grade = 150;
 		std::cout << "Bureaucrat " << getName() << " is now set to default grade : 150" << std::endl;
 	}
@@ -62,14 +60,16 @@ void Bureaucrat::incrementGrade()
 {
 	if (this->grade == 1)
 		throw Bureaucrat::GradeTooHighException();
-	this->grade--;
+	else
+		this->grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
 	if (this->grade == 150)
 		throw Bureaucrat::GradeTooLowException();
-	this->grade++;
+	else
+		this->grade++;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()

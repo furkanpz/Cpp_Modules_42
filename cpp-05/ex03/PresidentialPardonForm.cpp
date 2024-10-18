@@ -4,7 +4,7 @@ PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target){}
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src): AForm(src), _target(src._target){}
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src): AForm(src), _target(src.getTarget()){}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 

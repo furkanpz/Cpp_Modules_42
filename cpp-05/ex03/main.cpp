@@ -23,15 +23,21 @@ static void	test_intern(const std::string &type, const std::string &target)
 
 int	main()
 {
-	test_intern("shrubbery creation", "garden");
-	std::cout << "----------------------------------" << std::endl;
-	test_intern("robotomy request", "Bender");
-	std::cout << "----------------------------------" << std::endl;
-	test_intern("presidential pardon", "Tom");
-	std::cout << "----------------------------------" << std::endl;
-	test_intern("unknown form", "target");
-	std::cout << "----------------------------------" << std::endl;
-	test_intern("test", "lol");
-	std::system("leaks Intern");
+
+	test_intern("robotmy request", "Bender");
+	std::cout << "-----------------" << std::endl;
+	test_intern("presidential pardon", "Bender");
+	std::cout << "-----------------" << std::endl;
+	test_intern("shrubbery creation", "Bender");
+	std::cout << "-----------------" << std::endl;
+	test_intern("test creation", "Bender");
+	std::cout << "-----------------" << std::endl;
+	try{
+		test_intern("", "asdasdasd");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }
