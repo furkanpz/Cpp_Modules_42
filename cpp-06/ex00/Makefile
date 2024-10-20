@@ -6,7 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = 
+SRCS = main.cpp ScalarConverter.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
