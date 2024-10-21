@@ -41,15 +41,6 @@ static void IsChar(char c)
 	std::cout << std::fixed << std::setprecision(1) << "double: " << (static_cast<double>(c)) << std::endl;
 }
 
-static void IsSpecial(std::string &str)
-{
-	if (!str.compare("+inff") || str.compare("-inff"))
-	{
-		std::cout << "Char: imposibble" << std::endl;
-
-	}
-}
-
 static bool IsInt(const std::string &str)
 {
 	long i;
@@ -109,7 +100,7 @@ static bool IsDouble(const std::string &str)
 	double	db;
 	int		dot = 0;
 
-	if (!str.compare("+inff") || !str.compare("-inff") || !str.compare("nanf"))
+	if (!str.compare("+inf") || !str.compare("-inf") || !str.compare("nan"))
 		return (true);
 	if (str.length() < 2)
 		return (false);
@@ -196,7 +187,7 @@ static void	IsDoublePrint(double d)
 		std::cout << std::fixed << std::setprecision(1) << "float: +" << (static_cast<float>(d)) << "f" << std::endl;
 	else if ((static_cast<float>(d)) == std::numeric_limits<float>::infinity())
 		std::cout << std::fixed << std::setprecision(1) << "float: " << "impossible" << std::endl;
-	else if ((static_cast<float>(d)) == d - (d - static_cast<float>(d)))
+	else if ((static_cast<float>(d)) == d - (d - static_cast<int>(d)))
 		std::cout << std::fixed << std::setprecision(1) << "float: " << (static_cast<float>(d)) << "f" << std::endl;
 	else
 		std::cout << std::fixed << std::setprecision(7) << "float: " << (static_cast<float>(d)) << "f" << std::endl;
@@ -210,6 +201,9 @@ static void	IsDoublePrint(double d)
 
 void ScalarConverter::convert(const std::string &str)
 {
+	double tempd;
+	float tempf;
+	
 	if (str.empty())
 	{
 		InvalidArg();
@@ -217,13 +211,23 @@ void ScalarConverter::convert(const std::string &str)
 	}
 	if (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
 		IsChar(str[1]);
-	else if (str.length() == 1 && std::isdigit(str[0]))
+	else if (str.length() == 1 && !std::isdigit(str[0]))
 		IsChar(str[0]);
 	else if (IsInt(str))
 		IsIntPrint(std::atoi(str.c_str()));
 	else if (IsFloat(str))
-		IsFloatPrint(std::atof(str.c_str()));
+	{
+		std::stringstream ss(str.substr(0, str.length() - 1));
+		ss >> tempf;
+		IsFloatPrint(tempf);
+	}
 	else if (IsDouble(str))
-
+	{
+		std::stringstream ss(str);
+		ss >> tempd;
+		IsDoublePrint(tempd);
+	}
+	else
+		InvalidArg();
 	
 }

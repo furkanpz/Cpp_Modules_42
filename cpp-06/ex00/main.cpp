@@ -1,6 +1,12 @@
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	ScalarConverter::convert("nanf");
+	if (ac != 2)
+	{
+		std::cerr << "Usage: ./convert <number>";
+		return 1;
+	}
+	
+	ScalarConverter::convert(av[1]);
 }
