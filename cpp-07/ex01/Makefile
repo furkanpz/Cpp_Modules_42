@@ -1,4 +1,4 @@
-NAME = whatever
+NAME = iter
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -6,7 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp
+SRCS = main.cpp 
 
 OBJ = $(SRCS:.cpp=.o)
 

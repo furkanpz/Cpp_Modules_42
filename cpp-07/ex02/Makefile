@@ -1,4 +1,4 @@
-NAME = whatever
+NAME = array
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -6,7 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp
+SRCS = main.cpp Array.tpp
 
 OBJ = $(SRCS:.cpp=.o)
 
