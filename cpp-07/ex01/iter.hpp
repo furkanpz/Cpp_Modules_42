@@ -11,4 +11,13 @@ void iter(T *a, size_t len,void (*f)(T&))
 		f(a[i]);
 }
 
+template <typename T>
+void iter(T *a, size_t len,void (*f)(const T&))
+{
+	size_t i;
+
+	for (i = 0; i < len; i++)
+		f(a[i]);
+}
+
 #endif

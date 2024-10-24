@@ -6,7 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp Array.tpp
+SRCS = main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

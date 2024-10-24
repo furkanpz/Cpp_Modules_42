@@ -72,8 +72,6 @@ int	main()
 			j++;
 		}
 		std::cout << std::endl;
-		//On enleve l'affichage  du tableau vide
-		//std::cout << emptyTab[j] << std::endl;
 
 		unsigned int k = 0;
 		while (k < intTabCopy.Size()) 
@@ -87,6 +85,6 @@ int	main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
+		std::system("leaks array");
 		return (0);
 }
