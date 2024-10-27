@@ -1,33 +1,27 @@
 #include "easyfind.hpp"
+#include <vector>
+#include <list>
+
+
 
 int main() {
-	std::vector<int> v;
-	std::vector<int>::iterator it;
+	std::list<int> v;
+	std::list<int>::iterator i;
 
-	for (int i = 0; i < 10; ++i) {
-		v.push_back(i * i);
-	}
-	std::cout << "Vector: ";
-	for (std::vector<int>::iterator i = v.begin(); i != v.end(); ++i) {
-		std::cout << *i << " ";
-	}
-	std::cout << std::endl;
-
-	it = easyfind(v, -3);
-	if (it == v.end()) std::cout << "Not found" << std::endl;
-	else std::cout << "iterator: " << *it << std::endl;
-
-	it = easyfind(v, 2);
-	if (it == v.end()) std::cout << "Not found" << std::endl;
-	else std::cout << "iterator: " << *it << std::endl;
-
-	it = easyfind(v, 25);
-	if (it == v.end()) std::cout << "Not found" << std::endl;
-	else std::cout << "iterator: " << *it << std::endl;
-
-	it = easyfind(v, 81);
-	if (it == v.end()) std::cout << "Not found" << std::endl;
-	else std::cout << "iterator: " << *it << std::endl;
-
+	i = v.begin();
+	v.push_back(5);
+	v.push_back(4);
+	v.push_back(3);
+	v.push_back(2);
+	v.push_back(1);
+	   for (int x = 0; x < v.size(); x++) {
+        std::cout << &*i << " - " << *i++ << " " << std::endl;
+    }
+	v.push_front(6);
+	std::cout << "------" << std::endl;
+	i = v.begin();
+	for (int x = 0; x < v.size(); x++) {
+        std::cout << &*i << " - " << *i++ << " " << std::endl;
+    }
 	return 0;
 }

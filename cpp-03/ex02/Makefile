@@ -8,10 +8,11 @@ CPP = c++
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-all: $(NAME)
 
 $(NAME): $(SRCS)
 	$(CPP) $(FLAGS) $(SRCS) -o $(NAME)
+
+all: $(NAME)
 
 clean:
 	$(RM) $(NAME)

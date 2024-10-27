@@ -12,7 +12,7 @@ class PhoneBook {
 		PhoneBook();
 	private:
 		int dsize;
-		int size;
+		int size = 0;
 		Contact Contact[8];
 		std::string SetColumn(std::string str);
 };

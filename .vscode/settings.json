@@ -77,6 +77,7 @@
 		"filesystem": "cpp",
 		"numeric": "cpp",
 		"random": "cpp",
-		"*.tpp": "c"
+		"*.tpp": "c",
+		"list": "cpp"
 	}
 }

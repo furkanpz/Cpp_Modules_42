@@ -6,7 +6,7 @@ RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp 
+SRCS = main.cpp Span.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
