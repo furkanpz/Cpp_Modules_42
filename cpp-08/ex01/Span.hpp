@@ -8,21 +8,19 @@ class Span{
 	private:
 		unsigned int		N;
 		std::vector<int>	vec;
-
-	public:
 		Span();
+	public:
 		Span(unsigned int n);
 		Span(const Span &other);
 		Span& operator = (const Span &other);
 		~Span();
 	
 	public:
-		void addNumber(int nbr);
 		int shortestSpan();
         int longestSpan();
 		int getN() const;
 		std::vector<int> getVector() const;
-
+		void addNumber(int nbr);
 		class SpanMaxRange: public std::exception {
 			public:
 				virtual const char *what() const throw();

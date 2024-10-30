@@ -21,8 +21,11 @@ int main()
     std::srand(time(0));
     for(int i = 0; i < 10000; i++)
         a.addNumber(rand() % 16);
+    Span test = a;
     std::cout << "A: Shortest Span is "<< a.shortestSpan() << std::endl;
+    std::cout << "TEST: Shortest Span is "<< test.shortestSpan() << std::endl;
     std::cout << "A: Longest Span is "<< a.longestSpan() << std::endl;
+    std::cout << "TEST: Longest Span is "<< test.longestSpan() << std::endl;
     std::cout << "---------Error Checking---------" << std::endl;
 
     std::cout <<  std::endl << "1- Add Number When Full" << std::endl;
