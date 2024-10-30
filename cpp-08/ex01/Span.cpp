@@ -47,13 +47,6 @@ int Span::shortestSpan()
 		return shortest;
 	}
 }
-void	Span::addNumber(std::vector<int>::iterator bg, std::vector<int>::iterator en)
-{
-	if(static_cast<size_t> (en - bg) > (this->N - this->vec.size()))
-		throw SpanMaxRange();
-	for(std::vector<int>::iterator start = bg; start != en; start++)
-		vec.push_back(*start);
-}
 
 int Span::longestSpan()
 {
