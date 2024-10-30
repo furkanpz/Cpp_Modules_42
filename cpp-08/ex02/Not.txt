@@ -1,5 +1,5 @@
 Stack sınıfının template <class T, class Container = std::deque<T>> sözdizimi, deque'i temel kapsayıcı olarak belirtir
- Bu, stack nesnesinin, deque'in tüm özelliklerini miras aldığını gösterir.
+Bu, stack nesnesinin, deque'in tüm özelliklerini miras aldığını gösterir.
 
 class MutantStack : public std::stack<T, container> ifadesi, 
 MutantStack sınıfının std::stack sınıfından miras aldığını belirtir. 
