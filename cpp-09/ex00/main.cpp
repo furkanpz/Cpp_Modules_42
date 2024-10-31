@@ -1,9 +1,17 @@
 #include "BitcoinExchange.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	BitcoinExchange a;
-	std::string b = "2024-01-01";
-	a.retData(b, 1);
-
+	if (ac != 2)
+	{
+		std::cerr << "Error: could not open file." << std::endl;
+		return 1;
+	}
+	std::ifstream file(av[1]);
+	if (file.fail())
+	{
+		std::cerr << "Error: could not open file: " << av[1] << std::endl;
+		return 1; 
+	}
+	
 }

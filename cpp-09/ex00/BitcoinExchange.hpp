@@ -23,6 +23,9 @@ class BitcoinExchange {
 		void retData(std::string &date, double val);
 		void readData(std::string &date, double val);
 		std::time_t convertToTimestamp(const std::string& dateStr);
+		class DataException: public std::exception {
+			virtual const char *what() const throw();
+		}
 };
 
 
