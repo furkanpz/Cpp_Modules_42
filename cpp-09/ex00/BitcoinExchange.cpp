@@ -40,38 +40,46 @@ void BitcoinExchange::retData(std::string &date, double val)
 	std::time_t temp = LONG_MAX;
 	std::time_t temp2 = 0;
 	double last = 0;
+	int a = 0;
 
 	if (timeStamp == -1)
 	{
-		std::cerr << "Error: bad input => " << date << std::endl;
+		std::cout << "Error: bad input => " << date << std::endl;
 		return ;
 	}
 	if (val >= INT_MAX)
 	{
-		std::cerr << "Error: too large a number." << std::endl;
+		std::cout << "Error: too large a number." << std::endl;
 		return ;
 	}
 	for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); it++)
 	{
 		temp2 = convertToTimestamp(it->first) - timeStamp;
 		if (temp2 < 0)
+		{
 			temp2 *= -1;
-		if (temp > temp2)
+			a = 1;
+		}
+		if (temp > temp2 && (a == 1 || temp2 < 86400))
 		{
 			temp = temp2;
 			last = it->second;
+			a = 0;
 		}
 	}
-	std::cout << date << " => " << val << " = " << last * val;
+	std::cout << date << " => " << val << " = " << last * val << std::endl;
 }
 std::time_t BitcoinExchange::convertToTimestamp(const std::string& dateStr) {
 	std::tm tm = {};
 	std::istringstream ss(dateStr);
 	std::time_t ret;
-
-	ss >> std::get_time(&tm, "%Y-%m-%d");
 	
+	std::string a;
+	ss >> std::get_time(&tm, "%Y-%m-%d");
 	if (ss.fail())
+		return (-1);
+	ss >> a;
+	if (a.length() != 0)
 		return (-1);
 	ret = mktime(&tm);
 	if (1230847200 > ret || 1735678800 <= ret)
