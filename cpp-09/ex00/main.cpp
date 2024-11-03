@@ -24,18 +24,24 @@ int main(int ac, char **av)
 			&& line.substr(line.find('|') + 2) == "value")
 			ColumnCheck = true;
 	}
-	if (!ColumnCheck)
+	if (!ColumnCheck && !line.empty())
 	{
-		std::cout << "Each line in this file must use the following format: 'date | value'" << std::endl;
-		return 1; 
+		std::cout << "Error: Each line in this file must use the following format: 'date | value'" << std::endl;
+		return 1;
+	}
+	if (line.empty())
+	{
+		std::cout << "Error: This File Empty!" << std::endl;
+		return 1;
 	}
 	BitcoinExchange BTC;
 	double value;
 	std::string temp;
 	const char *s;
-	int x = 0;
+	int x = 0, sep = 0, neg = 0, val = 0;
 	while (std::getline(file, line))
 	{
+		sep = 0, neg = 0, val = 0;
 		if (line.find('|') == std::string::npos)
 		{
 			std::cout << "Error: bad input => " << line << std::endl;
@@ -47,10 +53,18 @@ int main(int ac, char **av)
 				s = line.substr(line.find('|') + 1).c_str();
 				for (x = 0; s[x]; x++)
 				{
-					if (!std::isdigit(s[x]) && !(s[x] == 32 || (s[x] >= '\t' && s[x] <= '\r')))
+					if (s[x] == '-' && ++x)
+						neg++;
+					if (s[x] == '.' && ++x)
+						sep++;
+					if (std::isdigit(s[x]))
+						val++;
+					if (!std::isdigit(s[x]) && (!(s[x] == 32 || (s[x] >= '\t' && s[x] <= '\r'))
+					|| (sep > 1 || neg > 1)))
 						break;
 				}
-				if (s[x] && !std::isdigit(s[x]))
+				if (s[x] && (!std::isdigit(s[x]) && (s[x] != 32 || !(s[x] >= '\t' && s[x] <= '\r')))
+					|| (sep > 1 || neg > 1) || val == 0)
 					{
 						std::cout << "Error: bad input => " << line << std::endl;
 						continue;
