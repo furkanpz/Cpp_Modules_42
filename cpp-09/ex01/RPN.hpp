@@ -16,10 +16,10 @@ class RPN {
 	public:
 		void RpnConvert(std::string &rpnstr);
 	private:
-    	std::stack<int> operands;
+    	std::stack<double> stack;
 		bool isNumber(const std::string& s) const ;
 		bool isOperator(const std::string& s) const ;
-		int applyOperator(int operand1, int operand2, char op) const;
 };
+
 
 #endif

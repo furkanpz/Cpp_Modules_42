@@ -1,6 +1,6 @@
 NAME = RPN
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 
 
 RM = rm -rf
 
@@ -11,7 +11,7 @@ SRCS = main.cpp RPN.cpp
 OBJ = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CPP) -c $< -o $@
+	$(CPP) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 

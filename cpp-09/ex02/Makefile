@@ -1,17 +1,17 @@
-NAME = RPN
+NAME = PmergeMe
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98  -pedantic-errors
 
 RM = rm -rf
 
 CPP = c++
 
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CPP) -c $< -o $@
+	$(CPP) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 

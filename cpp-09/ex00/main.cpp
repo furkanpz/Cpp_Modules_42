@@ -63,7 +63,7 @@ int main(int ac, char **av)
 					|| (sep > 1 || neg > 1)))
 						break;
 				}
-				if (s[x] && (!std::isdigit(s[x]) && (s[x] != 32 || !(s[x] >= '\t' && s[x] <= '\r')))
+				if ((s[x] && (!std::isdigit(s[x]) && (s[x] != 32 || !(s[x] >= '\t' && s[x] <= '\r')))) \
 					|| (sep > 1 || neg > 1) || val == 0)
 					{
 						std::cout << "Error: bad input => " << line << std::endl;
