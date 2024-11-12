@@ -19,7 +19,7 @@ void RPN::RpnConvert(std::string &rpnstr)
 
 		while (tokens >> token) {
 			if (isNumber(token)) {
-				stack.push(std::stoi(token));
+				stack.push(std::atoi(token.c_str()));
 			} else if (isOperator(token)) {
 				if (stack.size() < 2) {
 					std::cout << "Error" << std::endl;

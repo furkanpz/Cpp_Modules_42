@@ -2,6 +2,7 @@
 
 int main(int ac, char **av)
 {
+	BitcoinExchange BTC;
 	bool ColumnCheck = false;
 	if (ac != 2)
 	{
@@ -31,10 +32,18 @@ int main(int ac, char **av)
 	}
 	if (line.empty())
 	{
-		std::cout << "Error: This File Empty!" << std::endl;
-		return 1;
+		std::getline(file, line);
+		if (line.empty())
+		{
+			std::cout << "Error: This File Empty!" << std::endl;
+			return 1;
+		}
+		else if (!ColumnCheck)
+		{
+			std::cout << "Error: Each line in this file must use the following format: 'date | value'" << std::endl;
+			return 1;
+		}
 	}
-	BitcoinExchange BTC;
 	double value;
 	std::string temp;
 	const char *s;
@@ -73,6 +82,11 @@ int main(int ac, char **av)
 				if (value < 0)
 				{
 					std::cout << "Error: not a positive number." << std::endl;
+					continue;
+				}
+				if (value == 0)
+				{
+					std::cout << "Error: Enter a value between 0 and 1000" << std::endl;
 					continue;
 				}
 			}

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fuyar <fuyar@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 15:31:44 by hoigag            #+#    #+#             */
-/*   Updated: 2024/11/04 14:28:51 by fuyar            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
 #include "PmergeMe.hpp"
 #include <ctime>
@@ -48,13 +36,12 @@ int main(int argc, char __unused **argv)
 		std::cout << "After : ";
 		printContainer(pmm.getNumbers());
 
-		std::cout << "Time to process a range of " << pmm.getNumbers().size() << " elements with std::vector : "<< vectorTime <<" us" << std::endl;
-		std::cout << "Time to process a range of " << pmm.getNumbers().size() << " elements with std::deque  : "<< dequeTime <<" us" << std::endl;
+		std::cout << "Time to process a range of " << pmm.getNumbers().size() << " elements with std::vector : " << std::fixed  << std::setprecision(5) << vectorTime <<" us" << std::endl;
+		std::cout << "Time to process a range of " << pmm.getNumbers().size() << " elements with std::deque  : " << std::fixed << std::setprecision(5) <<  dequeTime <<" us" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	return (0);
 }

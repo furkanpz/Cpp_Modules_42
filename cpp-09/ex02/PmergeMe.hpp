@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fuyar <fuyar@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 15:31:53 by hoigag            #+#    #+#             */
-/*   Updated: 2024/11/04 14:26:48 by fuyar            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
@@ -22,8 +10,6 @@ class PmergeMe
 	public:
 		PmergeMe(std::string input);
 		void parseString();
-		// void printVector(std::vector<int> numbers);
-		// void printContainer(std::vector< std::vector<int> > container);
 		
 		void forwardRecursionVector();
 		void unpairVector();
@@ -37,8 +23,9 @@ class PmergeMe
 		void marrySinglesDeque();
 		void jacobSthalInsertionDeque(std::deque<std::deque<int> >& mainChain, std::deque< std::deque<int> >& pend);
 		
-		std::vector< std::vector<int> > getNumbers();
-		std::deque< std::deque<int> > getDeque();
+		std::vector< std::vector<int> > getNumbers() const;
+		std::deque< std::deque<int> > getDeque() const;
+		std::string getInput() const;
 		~PmergeMe();
 	private:
 		std::string input;

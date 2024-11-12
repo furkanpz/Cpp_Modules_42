@@ -47,7 +47,7 @@ void BitcoinExchange::retData(std::string &date, double val)
 		std::cout << "Error: bad input => " << date << std::endl;
 		return ;
 	}
-	if (val >= INT_MAX)
+	if (val >= 1000)
 	{
 		std::cout << "Error: too large a number." << std::endl;
 		return ;
@@ -73,15 +73,41 @@ std::time_t BitcoinExchange::convertToTimestamp(const std::string& dateStr) {
 	std::tm tm = {};
 	std::istringstream ss(dateStr);
 	std::time_t ret;
-	
+	std::string empty;
+
 	std::string a;
-	ss >> std::get_time(&tm, "%Y-%m-%d");
+	for (size_t i = 0, b = 0; i < dateStr.length(); i++)
+	{
+		if (dateStr[i] == '-')
+			b++;
+		if (b > 2)
+			return -1;
+	}
+	ss >> std::setw(4) >> tm.tm_year;
+	ss >> std::setw(1) >> empty;
+    ss >> std::setw(2) >> tm.tm_mon;
+	ss >> std::setw(1) >> empty;
+    ss >> std::setw(2) >> tm.tm_mday;
 	if (ss.fail())
 		return (-1);
+	tm.tm_year -= 1900;
+	tm.tm_mon -= 1;
 	ss >> a;
 	if (a.length() != 0)
 		return (-1);
-	ret = mktime(&tm);
+	ret = std::mktime(&tm);
+	try {
+		std::tm* timeInfo = std::localtime(&ret);
+		char BUF[11];
+		BUF[10] = '\0';
+		std::strftime(BUF, sizeof(BUF), "%Y-%m-%d", timeInfo);
+		if (dateStr.compare(std::string(BUF)) == -1)
+			return (-1);
+	}
+	catch (std::exception &e)
+	{
+		return -1;
+	}
 	if (1230847200 > ret || 1735678800 <= ret)
 		return (-1);
 	return ret;

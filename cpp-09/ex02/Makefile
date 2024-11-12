@@ -1,6 +1,6 @@
 NAME = PmergeMe
 
-FLAGS = -Wall -Wextra -Werror -std=c++98  -pedantic-errors
+FLAGS = -Wall -Wextra -Werror -std=c++98 
 
 RM = rm -rf
 
